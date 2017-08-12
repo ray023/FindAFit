@@ -1,0 +1,17 @@
+<ion-view view-title="GPS">
+    <ion-content>
+        <ion-refresher pulling-text="Pull to refresh..." on-refresh="refreshBoxList()"></ion-refresher>
+        <faf-google-map ng-show="showGoogleMap == 'true'"></faf-google-map>
+        <ion-list>
+            <ion-item class="item-remove-animate item-icon-right" ng-repeat="box in data | orderBy:['preferred_order','distance']" type="item-text-wrap" href="#/tab/gps/{{box.af_id}}">
+                <faf-box-flair></faf-box-flair>
+                <p>
+                    Distance:  {{box.distance * userMeasurementFactor | number:1}}
+                    <span ng-show="userMeasurementFactor == 1">miles</span>
+                    <span ng-hide="userMeasurementFactor == 1">kilometers</span>
+                </p>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,39 @@
+<ion-view view-title="Certifications">
+    <ion-content>
+        <ion-refresher pulling-text="Pull to refresh..." on-refresh="refreshBoxList()"></ion-refresher>
+        <div class="card" ng-repeat="cert in certs">
+            <div class="item item-divider">
+                {{cert.title}}
+            </div>
+            <div class="item item-text-wrap">
+                <div class="row">
+                    <div class="col col-33">Affiliate:</div>
+                    <div class="col col-67">{{cert.affiliate}}</div>
+                </div>
+                <div class="row">
+                    <div class="col col-33">Location:</div>
+                    <div class="col col-67">{{cert.city_state_country}}</div>
+                </div>
+                <div class="row">
+                    <div class="col col-33">Date(s):</div>
+                    <div class="col col-67">{{cert.date_text}}</div>
+                </div>
+                <div class="row">
+                    <div class="col col-33">Distance:</div>
+                    <div class="col col-67">
+                        {{cert.distance * userMeasurementFactor | number:1}}
+                        <span ng-show="userMeasurementFactor == 1">miles</span>
+                        <span ng-hide="userMeasurementFactor == 1">kilometers</span>
+                    </div>
+                </div>
+            </div>
+            <button class="button button-warning" ng-click="hideCert(cert.title)">
+                Hide Class
+            </button>
+            <button class="button button-positive" ng-click="siteClick(cert.registration_url)">
+                Register
+            </button>
+
+        </div>
+    </ion-content>
+</ion-view>

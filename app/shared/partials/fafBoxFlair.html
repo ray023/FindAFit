@@ -1,0 +1,15 @@
+<!--Preferred heading-->
+<h1 ng-show="{{box.is_preferred}}" class="royal-bg white-text">
+    <i class="ion-star"></i><i class="ion-star"></i>
+    Preferred
+    <i class="ion-star"></i><i class="ion-star"></i>
+</h1>
+
+<!--Drop-In Friendly heading-->
+<h1 class="royal" ng-show="{{box.is_preferred}}">{{box.affil_name}}</i></h1>
+<h1 ng-show="{{box.drop_in_friendly}}" class="balanced">
+    {{box.affil_name}}
+</h1>
+
+<!--Regular Box-->
+<h2 ng-show="{{box.regular_box}}">{{box.affil_name}}</i></h2>

@@ -1,0 +1,11 @@
+<div id="map_canvas" data-tap-disabled="true">
+    <ui-gmap-google-map center="map.center" zoom="map.zoom">
+        <ui-gmap-markers models="map.markerModels" coords="'coords'" options="'options'" click="'clicked'" fit="true"></ui-gmap-markers>
+        <ui-gmap-window coords="map.windowModel.coords" idkey="map.windowModel.id" show="map.windowModel.show">
+            {{map.windowModel.title}}
+        </ui-gmap-window>
+
+        <ui-gmap-circle center="mapCircle.center" stroke="mapCircle.stroke" fill="mapCircle.fill" radius="mapCircle.radius" clickable="mapCircle.clickable">
+        </ui-gmap-circle>
+    </ui-gmap-google-map>
+</div>

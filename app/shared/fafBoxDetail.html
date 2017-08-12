@@ -1,0 +1,19 @@
+<ion-view view-title="{{data.affil_name}}">
+    <ion-content class="padding">
+        <div ng-show="{{data.drop_in_friendly}}" class="item item-divider balanced-bg white-text text-center">
+            DROP-IN FRIENDLY
+        </div>
+        <div ng-show="{{data.is_preferred}}" class="item item-divider royal-bg white-text text-center">
+            PREFERRED BOX
+        </div>
+        <div class="row" >
+            <h3>{{data.note_to_drop_in}}</h3>
+        </div>
+        <faf-address-block></faf-address-block>
+        <faf-phone-block        ng-show="!!data.phone"></faf-phone-block>
+        <faf-software-block     ng-show="!!data.software && !data.software_hyperlink"></faf-software-block>
+        <faf-drop-in-rate-block ng-show="!!data.drop_in_rate"></faf-drop-in-rate-block>
+        <faf-media-list></faf-media-list>
+        <faf-upgrade-listing></faf-upgrade-listing>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,57 @@
+<ion-view view-title="Settings">
+    <ion-content>
+        <ul class="list">
+            <li class="item item-toggle">
+                Show Map
+                <label class="toggle toggle-positive"  ng-click="saveShowGoogleMap(data.showGoogleMap)">
+                    <input type="checkbox" ng-model="data.showGoogleMap" ng-true-value="'true'" ng-false-value="'false'">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+        </ul>
+        <ion-list>
+            <div class="list">
+                <div class="item item-divider">
+                    Navigation: {{ data.userNavApp }}
+                </div>
+                <ion-radio ng-repeat="item in data.navOptions"
+                           ng-value="item.value"
+                           ng-model="data.userNavApp"
+                           ng-click="saveUserNavApp(item.value)"
+                           name="user_nav_app">
+                    <i class="{{ item.icon }}"></i> {{ item.text }}
+                </ion-radio>
+            </div>
+        </ion-list>
+        <ion-list>
+            <div class="list">
+                <div class="item item-divider">
+                    Measurement
+                </div>
+                <ion-radio ng-repeat="item in data.measurementOptions"
+                           ng-value="item.value"
+                           ng-model="data.userMeasurementFactor"
+                           ng-click="saveUserMeasurementFactor(item.value)"
+                           name="user_measurement_factor">
+                                {{ item.text }}
+                </ion-radio>
+            </div>
+        </ion-list>
+        <ion-list>
+            <div class="list">
+                <div class="item item-divider">
+                    Boxes to return: {{ data.boxResultCount }}
+                </div>
+                <ion-radio ng-repeat="item in data.boxCountList"
+                            ng-value="item.value"
+                            ng-model="data.boxResultCount"
+                            ng-click="saveBoxCount(item.value)"
+                            name="box_result_count">
+                    {{ item.text }}
+                </ion-radio>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

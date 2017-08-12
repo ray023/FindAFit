@@ -1,0 +1,32 @@
+<ion-view view-title="Address">
+    <ion-content>
+        <div class="list padding">
+            <label class="item item-input">
+                <input type="text" placeholder="Address, Landmark or Whatever" ng-model="search_term"></input>
+            </label>
+            <button class="button button-block button-stable" ng-click="searchByTerm(search_term)">
+                Search
+            </button>
+            <faf-google-map ng-show="showGoogleMap == 'true'"></faf-google-map>
+        </div>
+        <ion-list>
+            <ion-item class="item-remove-animate item-icon-right" ng-repeat="box in data.affil_list | orderBy:['preferred_order','distance']" type="item-text-wrap" href="#/tab/address/{{box.af_id}}">
+                <div ng-hide="{{box.distance < 0}}">
+                    <faf-box-flair></faf-box-flair>
+                    <p>
+                        Distance:  {{box.distance * userMeasurementFactor | number:1}}
+                        <span ng-show="userMeasurementFactor == 1">miles</span>
+                        <span ng-hide="userMeasurementFactor == 1">kilometers</span>
+                    </p>
+                    <i class="icon ion-chevron-right icon-accessory"></i>
+                </div>
+                <div ng-show="{{box.distance < 0}}">
+                    <h3>Search Limit Reached</h3>
+                    <p>
+                        Please try again tomorrow.
+                    </p>
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
